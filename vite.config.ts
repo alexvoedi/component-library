@@ -1,6 +1,11 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
+import Unocss from 'unocss/vite'
+import presetWind from '@unocss/preset-wind'
+import presetAttributify from '@unocss/preset-attributify'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === 'prod'
@@ -78,7 +83,37 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    plugins: [vue()],
+    plugins: [
+      Vue(),
+      Unocss({
+        presets: [presetWind(), presetAttributify()],
+        theme: {},
+        rules: [],
+      }),
+      Components({
+        dts: true,
+        deep: true,
+        directoryAsNamespace: true,
+        include: [/\.vue$/, /\.vue\?vue/],
+        globalNamespaces: ['views', 'components'],
+        dirs: ['src/views', 'src/components', 'src/layouts'],
+      }),
+
+      AutoImport({
+        include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+        imports: [
+          '@vueuse/core',
+          '@vueuse/head',
+          'pinia',
+          'vue',
+          'vue-i18n',
+          'vue-router',
+        ],
+        eslintrc: {
+          enabled: true,
+        },
+      }),
+    ],
     optimizeDeps,
     build,
     test,

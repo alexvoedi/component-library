@@ -1,15 +1,15 @@
-<template>
-  <HelloWorld />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './helloWorld.vue'
+import BaseButton from './BaseButton.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld,
+    BaseButton,
   },
 })
 </script>
+
+<template>
+  <BaseButton>test</BaseButton>
+</template>
