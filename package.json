@@ -1,21 +1,13 @@
 {
-  "name": "@logustra/vivu-npm",
-  "version": "0.1.4",
-  "description": "Starter template to build component library for vue.js 2-3",
-  "keywords": [
-    "starter",
-    "boilerplate",
-    "vue",
-    "vue3",
-    "component",
-    "ui",
-    "frontend"
-  ],
+  "name": "",
+  "version": "",
+  "description": "",
+  "keywords": [ ],
   "license": "MIT",
-  "author": "Faizal Andyka",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/logustra/vivu-npm"
+    "url": ""
   },
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -31,7 +23,7 @@
   "files": [
     "dist"
   ],
-  "bugs": "https://github.com/logustra/vivu-npm/issues",
+  "bugs": "",
   "scripts": {
     "clean:dist": "rimraf dist",
     "clean:coverage": "rimraf coverage",
@@ -45,11 +37,6 @@
     "story:build": "histoire build",
     "story:preview": "histoire preview"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
   "peerDependencies": {
     "@vue/composition-api": "^1.4.9",
     "vue": "^2.0.0 || >=3.0.0"
@@ -58,6 +45,9 @@
     "@vue/composition-api": {
       "optional": true
     }
+  },
+  "stackblitz": {
+    "startCommand": "npm run story:dev"
   },
   "dependencies": {
     "@unocss/reset": "^0.39.0",
@@ -86,8 +76,5 @@
     "vitest": "^0.15.1",
     "vue": "^3.2.37",
     "vue-tsc": "^0.37.9"
-  },
-  "volta": {
-    "node": "14.19.1"
   }
 }
